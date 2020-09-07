@@ -38,7 +38,9 @@
 1. Useful aliases: For examples below we'll set variables for the database ("d"), files ("f"), and Cowrie logs ("l") directories.  Note if you've installed in non-standard locations you'll need to update these.
 
     d=/srv/www/DB
+    
     f=/srv/cowrie/var/lib/cowrie/downloads
+    
     l=/srv/cowrie/var/log/cowrie
 
 1. Using "logs" vs. "json" files - pros and cons
