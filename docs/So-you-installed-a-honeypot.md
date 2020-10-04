@@ -139,6 +139,8 @@ That will list all the files downloaded to the system in the last 24-hour period
 
 ## Changing retention time (logs, downloaded files)
 
+## The honeypot seems primarily to simulate being a linux system.  Can I configure it to be a Windows system instead?
+
 # If I want to contribute, what areas might need contributions?
 
 1. Why are errors sent to root (see /var/spool/mail/root) regularly?
