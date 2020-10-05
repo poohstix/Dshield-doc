@@ -135,6 +135,23 @@ That will list all the files downloaded to the system in the last 24-hour period
 
 # Can I configure the honeypot, and how?
 
+# I already installed the honeypot software, and my firewall blocks VNC, and I want to use RealVNC to connect to my Raspberry Pi.  What can I do?
+
+Since you can only connect to the honeypot by using ssh to port 12222 (unless you configured it differently), you'll need to use port forwarding with ssh to tunnel the VNC connection to your honeypot.
+
+Here's an example that worked using a honeypot that had IP 192.168.1.8:
+
+    ssh -L 5900:192.168.1.8:5900 -p 12222 pi@192.168.1.8
+    
+One you've authenticated and are connected successfully, use VNC Connect (or another VNC tool) to make a direct connection to the Pi.
+
+1. Open VNC
+2. Connect to 127.0.0.1 (your loopback address).  You are connecting to your own system.  (Note: You should NOT have VNC server listening on port 5900 when you do this.  If you do, use a port other than 5900 as the first value of the -L parameter.)
+3. You should connect to the pi.
+
+If you are having issues, check the /var/log/vncserver-xll.log for useful troubleshooting hints.
+
+
 ## Reducing duplication of logging and artifact saving
 
 ## Changing retention time (logs, downloaded files)
