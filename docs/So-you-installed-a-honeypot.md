@@ -123,7 +123,7 @@ Here we might look for any indications of attempts to break out of the honeypot.
 
     select distinct cmd, path, summary from requests limit 40;
 
-    sqlite3 w3.sqlite 'select date, cmd, path, summary from requests limit 400;'|while read i j;do echo `echo $i|    perl -ne 'chomp;print scalar localtime($_);'` $j;done
+    sqlite3 w3.sqlite 'select date, cmd, path, summary from requests limit 400;'|while read i j;do echo \`echo $i| perl -ne 'chomp;print scalar localtime($_);'\` $j;done
 
 # What are queries I can do on the file downloads?
 
