@@ -39,7 +39,7 @@
 
     d=/srv/www/DB
     
-    f=/srv/cowrie/var/lib/cowrie/downloads
+    f=/srv/cowrie/var/lib/cowrie/
     
     l=/srv/cowrie/var/log/cowrie
 
@@ -138,9 +138,11 @@ That will list all the files downloaded to the system in the last 24-hour period
 - Approaches: tailing logs; sniffing traffic; periodic reporting
 
     cd $l
+    
     tail -F cowrie.json|jq '[ .eventid, .message|.[0:45] ]|join(" +=+ ")'
 
     cd /var/log
+    
     tail -F dshield.log|while read epoc rest;do echo `date -d"@$epoc"  +"%FT%T"` $rest;done
 
 - Graphical / curses display approaches; exceeding device capabilities
