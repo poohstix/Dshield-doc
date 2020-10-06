@@ -77,6 +77,18 @@ Here we might look for any indications of attempts to break out of the honeypot.
 
     cd $l
     egrep -hi download cowrie.json*|jq '[ .outfile? , .url? , .destfile? ]|join("|")'|sort|uniq|less
+    
+# What usernames and passwords are being used against my honeypot?
+
+    ail -f cowrie.json|jq '.|select(.eventid=="cowrie.login.failed")| [.timestamp[0:19], .eventid[7:], .src_ip, .username, .password, .message ]|join("|")'
+        
+    "2020-10-05T21:24:00|login.failed|39.109.115.192|root|Qwerty@3edc|login attempt [root/Qwerty@3edc] failed"                                                                      
+    "2020-10-05T21:24:02|login.failed|140.143.25.149|root|ronaldo|login attempt [root/ronaldo] failed"                                                                              
+    "2020-10-05T21:24:04|login.failed|164.132.145.70|root|QWE1231zxc|login attempt [root/QWE1231zxc] failed"                                                                        
+    "2020-10-05T21:24:19|login.failed|5.182.39.88|root|letmein|login attempt [root/letmein] failed"                                                                                 
+    "2020-10-05T21:24:28|login.failed|220.186.141.118|root|Password0123|login attempt [root/Password0123] failed"                                                                   
+    "2020-10-05T21:24:39|login.failed|82.148.19.60|root|Pa$$w0rd[e]|login attempt [root/Pa$$w0rd[e]] failed"                                                                        
+    "2020-10-05T21:24:42|login.failed|158.69.192.35|root|virus|login attempt [root/virus] failed"   
 
 # What from the honeypot is uploaded to DShield and what is going to waste?
 
