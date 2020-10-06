@@ -62,11 +62,13 @@ Here we might look for any indications of attempts to break out of the honeypot.
 2. Find the "data" field that's being sent in: (need to tweak to ignore "null")
 
     cd $l
+    
     cat cowrie.json.2020-08-14|jq '.data?'|less
 
     - This might be executable instructions.  Needs to be analyzed.
 
     cd $l
+    
     cat cowrie.json.2020-08-14|jq '[ .eventid?, .src_ip?, (.dst_port?|tostring) ]|join("|")'|egrep 'connect'|cut -d'|' -f 2-3|sort|uniq -c|less
 
 # How do I find the logs that correspond to a downloaded file?  Who did it, and how?
