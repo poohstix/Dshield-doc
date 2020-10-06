@@ -80,7 +80,7 @@ Here we might look for any indications of attempts to break out of the honeypot.
     
 # What usernames and passwords are being used against my honeypot?
 
-    ail -f cowrie.json|jq '.|select(.eventid=="cowrie.login.failed")| [.timestamp[0:19], .eventid[7:], .src_ip, .username, .password, .message ]|join("|")'
+    tail -f cowrie.json|jq '.|select(.eventid=="cowrie.login.failed")| [.timestamp[0:19], .eventid[7:], .src_ip, .username, .password, .message ]|join("|")'
         
     "2020-10-05T21:24:00|login.failed|39.109.115.192|root|Qwerty@3edc|login attempt [root/Qwerty@3edc] failed"                                                                      
     "2020-10-05T21:24:02|login.failed|140.143.25.149|root|ronaldo|login attempt [root/ronaldo] failed"                                                                              
