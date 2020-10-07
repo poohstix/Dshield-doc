@@ -32,6 +32,12 @@
 
 1. What logs should I check to reassure myself that my honeypot has not been compromised?
 
+1. Can my honeypot serve as a honeypot for my home network?
+
+Is it true that the current firewall configuration seems to prevent activity from my own subnet from being logged by the honeypot?  I want to have my honeypot configured so if any IP from my network contacts it (except, perhaps, a fixed address), that it alerts, giving me an early warning of attacker behavior from within my network.  Can I do that?
+
+[This answer needs research to create an answer.]
+
 
 # Review the Cowrie logs
 
