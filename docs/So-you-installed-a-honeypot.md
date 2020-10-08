@@ -1,4 +1,4 @@
-***Honeypot questions which could inform a Guide***
+*** A Guide for the New Honeypot User ***
 
 # Now that I've installed the honeypot and got it working, what have I got?
 
