@@ -26,5 +26,5 @@ service_identity==18.1.0
 slackclient
 tftpy==0.8.0
 treq==20.4.1
-twisted==20.3.0
+twisted==22.10.0
 wokkel==18.0.0rc5
